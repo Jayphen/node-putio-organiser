@@ -1,10 +1,14 @@
-import http from "http"
+import { Client } from "put.io-node"
+import { PUTIO_CLIENT_ID } from "./config"
 
-export const poop: string[] = ["hello my dude", "welcome to node"]
+const apiClient = new Client(PUTIO_CLIENT_ID)
 
-http
-  .createServer((_: http.IncomingMessage, response: http.ServerResponse) => {
-    response.write(poop.map((msg: string) => msg.toUpperCase()).join("\n"))
-    response.end()
-  })
-  .listen(3000)
+const info = () => apiClient.account.getAccountInfo()
+
+const result = async () => {
+  const infos = await info()
+
+  console.log(infos)
+}
+
+result()
