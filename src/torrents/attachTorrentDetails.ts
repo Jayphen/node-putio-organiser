@@ -1,4 +1,5 @@
 import { default as ptn } from "parse-torrent-name"
+import { titleCase } from "../utils"
 
 export type FileType = "unknown" | "film" | "series"
 export type File = {
@@ -23,7 +24,10 @@ export const enrich = (files: File[]) => {
 
     return {
       ...file,
-      torrentDetails,
+      torrentDetails: {
+        ...torrentDetails,
+        title: titleCase(torrentDetails.title)
+      },
       torrentType
     }
   })
