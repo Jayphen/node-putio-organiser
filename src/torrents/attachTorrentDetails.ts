@@ -10,7 +10,7 @@ export type Enriched = File & {
   torrentDetails: { title: string }
 }
 
-export const formatted = (files: File[]) => {
+export const enrich = (files: File[]) => {
   const fileNames = files
 
   return fileNames.map(file => {

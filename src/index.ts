@@ -4,12 +4,12 @@ import { createOrFindDir } from "./files/createOrFindDir"
 import { getFiles } from "./files/getFiles"
 import { getFilesByType } from "./files/getFilesByType"
 import { moveFiles } from "./files/moveFiles"
-import { formatted } from "./torrents/attachTorrentDetails"
+import { enrich } from "./torrents/attachTorrentDetails"
 
 export const apiClient = new Client(PUTIO_CLIENT_ID)
 
 export const init = async () => {
-  const enrichedFiles = formatted(await getFiles())
+  const enrichedFiles = enrich(await getFiles())
 
   const films = getFilesByType(enrichedFiles, "film")
   const series = getFilesByType(enrichedFiles, "series")
@@ -20,7 +20,10 @@ export const init = async () => {
   await moveFiles(series, seriesDirId)
   await moveFiles(films, filmDirId)
 
-  return films.length > 0
-    ? `Moved films: ${films.map(film => film.torrentDetails.title).join(", ")}`
-    : "No films to move"
+  const movedFiles = [...films, ...series]
+  return movedFiles.length > 0
+    ? `Moved files: ${movedFiles
+        .map(file => file.torrentDetails.title)
+        .join(", ")}`
+    : "No files to move"
 }
