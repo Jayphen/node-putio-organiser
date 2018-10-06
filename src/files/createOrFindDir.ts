@@ -1,6 +1,6 @@
 import { apiClient } from ".."
 import { filmsDirname } from "../config"
-import { getFiles } from "./getFiles"
+import { File } from "../torrents/attachTorrentDetails"
 
 export const createOrFindDir = async (
   parentId: number = 0,
@@ -9,7 +9,7 @@ export const createOrFindDir = async (
   const filesAtParent = await apiClient.files.getFilesList(parentId)
 
   const existingDir = JSON.parse(filesAtParent).files.find(
-    file => file.name === dirName
+    (file: File) => file.name === dirName
   )
 
   let id: number
