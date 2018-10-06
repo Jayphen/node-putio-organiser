@@ -1,14 +1,7 @@
 import { Client } from "put.io-node"
 import { PUTIO_CLIENT_ID } from "./config"
+import { getFiles } from "./files/getFiles"
 
-const apiClient = new Client(PUTIO_CLIENT_ID)
+export const apiClient = new Client(PUTIO_CLIENT_ID)
 
-const info = () => apiClient.account.getAccountInfo()
-
-const result = async () => {
-  const infos = await info()
-
-  console.log(infos)
-}
-
-result()
+getFiles().then(result => console.log(result))
