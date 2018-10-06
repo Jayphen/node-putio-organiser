@@ -1,5 +1,9 @@
 lib
 dist
 node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
 .vscode
 .env
