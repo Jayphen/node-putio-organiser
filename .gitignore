@@ -1,9 +1,10 @@
+.vscode
+.env
 lib
 dist
 node_modules
 jspm_packages
+**/*.log
 
 # Serverless directories
 .serverless
-.vscode
-.env
