@@ -2,16 +2,15 @@
   "name": "putio-organise",
   "version": "0.0.1",
   "description": "Auto rename and move tv shows and movies on putio",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "serve": "node lib/index.js",
+    "run": "node -e \"require('./handler.js').hello()\"",
     "node:watch": "nodemon lib/index.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build:watch": "tsc -w",
-    "build": "tsc",
-    "bundle": "webpack"
+    "build": "tsc"
   },
   "keywords": [
     "putio"
@@ -35,9 +34,7 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^3.1.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "typescript": "^3.1.1"
   },
   "dependencies": {
     "dotenv": "^6.0.0",
