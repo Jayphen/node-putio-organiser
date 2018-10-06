@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
+    "parse-torrent-name": "^0.5.4",
     "put.io-node": "^1.0.3"
   }
 }
