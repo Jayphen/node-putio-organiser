@@ -4,10 +4,12 @@ This will parse the file names in the root of your put.io account. If it finds w
 
 At the moment the parsing is pretty naive, and expects your files to be using typical 'release' naming.
 
+_You will need node & yarn installed globally_
+
 1. Request an OAuth token from put.io @ https://app.put.io/settings/account/oauth/apps
 2. Add the token to `env.sample` and rename the file to `.env`
 3. `yarn`
-4. Run `tsc` once to compile, then `yarn start` to execute. (I will streamline this later)
+4. Run `yarn start` to execute.
 
 ## Serverless
 

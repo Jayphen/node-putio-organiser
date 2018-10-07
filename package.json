@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "start": "node -e \"require('./handler.js').hello()\"",
+    "start": "tsc && node -e \"require('./handler.js').hello()\"",
     "node:watch": "nodemon lib/index.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
