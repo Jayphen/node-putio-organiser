@@ -1,4 +1,4 @@
-import { default as ptn } from "parse-torrent-name"
+import { default as ptn, ParsedTorrentName } from "parse-torrent-name"
 import { titleCase } from "../utils"
 
 export type FileType = "unknown" | "film" | "series"
@@ -8,7 +8,7 @@ export type File = {
 }
 export type Enriched = File & {
   torrentType: FileType
-  torrentDetails: { title: string }
+  torrentDetails: ParsedTorrentName
 }
 
 export const enrich = (files: File[]) => {
