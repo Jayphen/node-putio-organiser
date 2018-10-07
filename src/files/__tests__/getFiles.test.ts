@@ -11,7 +11,10 @@ describe("get files", () => {
   })
 
   it("gets a list of files", async () => {
-    expect(files).toEqual([expect.objectContaining({ id: 2 })])
+    expect(files).toEqual([
+      expect.objectContaining({ id: 2 }),
+      expect.objectContaining({ name: "some.super.great.file" })
+    ])
   })
   it("ignores files contained in config's `excludedNames`", async () => {
     expect(files).not.toEqual([
